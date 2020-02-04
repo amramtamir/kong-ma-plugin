@@ -1,4 +1,5 @@
 # kong-ma-plugin
+# Not for production!!!
 Mutual authentication Plugin for kong
 
 This plugin will verify the thumbprint sent in the client certificate during the SSL handshake.
