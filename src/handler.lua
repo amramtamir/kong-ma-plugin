@@ -12,7 +12,11 @@ function MaAuthHandler:access(conf)
   if not ssl_client_thumbprint then
     return kong.response.exit(FORBIDDEN, { message = "No SSL Certificate sent" })
   end
-  local num_of_thumbprints = #conf.thumbprints
+  local num_of_thumbprints = 0
+  if conf.thumbprints then
+    num_of_thumbprints = #conf.thumbprints
+  end
+
   if conf.thumbprints and num_of_thumbprints > 0 then
     for i = 1, num_of_thumbprints do
         local current_thumbprint = conf.thumbprints[i]
